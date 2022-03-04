@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content='MaifenNetwork cộng đồng chia sẻ đam mê phượt, công nghệ, khoa học, kỹ thuật, kinh tế, đầu tư, tiền kỹ thuật số' name='description' />
+    <meta content='maifen, maifennetwork, phượt, tiền ảo, maifen community, cộng đồng maifen, hello maifen' name='keywords' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.leanhduc.pro.vn/font-awesome/pro-5.15.3/css/all.css" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='src/style.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>MaifenNetwork | Download Video Youtube</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <br>
+        {% if error_msg %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <center><b>{{ error_msg }}</b></center>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <h1 class="text-center">CÔNG CỤ DOWNLOAD VIDEO YOUTUBE</h1>
+        <br>
+    </div>
+
+    {% if embed_url %}
+    <form method="post" action="/yt_download">
+        <br>
+        <center>
+            <input type="submit" class="btn btn-success" value="DOWNLOAD MP4">
+        </center>
+    </form>
+    <br><br>
+
+    <div class="container">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="{{ embed_url }}" allowfullscreen></iframe>
+        </div>
+    </div>
+    <br><br>
+    {% else %}
+    <form class="form" method="post" action="/download_youtube">
+        <div class="form-group">
+            <input style="color:white;" type="text" class="form-control bg-dark" name="url" placeholder="Nhập Url Video" required>
+        </div>
+        <div class="form-group">
+            <center><input type="submit" class="btn btn-success" value="TÌM KIẾM"></center>
+        </div>
+    </form>
+    {% endif %}
+
+
+    <!--    <footer class="bg-muted text-center text-lg-start">
+      <div class="text-center p-3">
+          © Copyright 2022 by <a href="https://m.me/vn.nguyenduchoang/" target="_blank">NDH A2K43LVT</a>
+      </div>
+   </footer> -->
+</body>
+<style>
+    body {
+        background-color: #1c1e21;
+        color: white;
+    }
+</style>
+
+</html>
